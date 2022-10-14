@@ -1,0 +1,13 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.estadistica {
+    padding: 5rem;
+    @include m.tablet { 
+        padding: 10rem;
+    }
+
+    &__heading {
+        @include m.borde(v.$secundario, v.$primario);
+    }
+}

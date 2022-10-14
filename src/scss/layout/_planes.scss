@@ -1,0 +1,79 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.planes {
+    background-color: v.$secundario;
+    padding: 5rem 0;
+    @include m.tablet { 
+        padding: 10rem;
+    }
+
+    &__heading {
+        @include m.borde(v.$blanco, v.$primario);
+    }
+    &__descripcion {
+        color: v.$blanco;
+    }
+    &__grid {
+        display: flex;
+        flex-direction: column;
+        @include m.tablet { 
+            flex-direction: row;
+            max-width: 80rem;
+            margin: 10rem auto 0 auto;
+        }
+    }
+}
+
+
+.plan {
+    flex-grow: 1;
+    background-color: v.$blanco;
+    padding: 16rem 4rem 4rem 4rem;
+    border-bottom: 1px solid #e1e1e1;
+    
+
+    &:hover {
+        transition-property: transform;
+        transition-duration: .4s;
+        transform: scale(1.1);
+    }
+    &__heading {
+        color: v.$secundario;
+    }
+    &__precio {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    li {
+        margin-bottom: 2rem;
+        text-align: center;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+    &__btn {
+        @include m.boton(v.$primario, v.$secundario);
+    }
+    &.inicio {
+        @include m.iconoBg('../img/icono_inicio.svg');
+    }
+    &.negocio {
+        background-color: v.$primario;
+        order: -1;
+        @include m.iconoBg('../img/icono_negocio.svg');
+        @include m.tablet { 
+            order: unset;
+            margin: -5rem 0;
+            border-radius: 2rem;
+            background-position: 50% 5rem;
+            padding-top: calc(16rem + 5rem);
+            z-index: 100;
+        }
+    }
+    &.pro {
+        @include m.iconoBg('../img/icono_pro.svg');
+    }
+}
